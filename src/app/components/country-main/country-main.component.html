@@ -1,0 +1,13 @@
+<app-abstract-data-main [cols]="cols" [filters]="filters" globalFilterFields="['name', 'code']" [values]="countries" [(selectedItem)]="selectedCountry" (onSave)="onSave()" (onRemove)="onRemove($event)" (onOpenEdit)="onOpenEdit()">
+  <div dialog>
+    <div class="p-field">
+      <label for="countryNameInput">Name</label>
+      <input type="text" pInputText id="countryNameInput" [(ngModel)]="editCountry.name" required autofocus />
+      <!-- <small class="p-error" *ngIf="!editCountry.name">Name is required.</small> -->
+    </div>
+    <div class="p-field">
+      <label for="countryCodeInput">Code</label>
+      <input type="text" pInputText id="countryCodeInput" [(ngModel)]="editCountry.code" required />
+    </div>
+  </div>
+</app-abstract-data-main>

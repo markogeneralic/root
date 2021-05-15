@@ -1,0 +1,122 @@
+@import 'src/variables.scss';
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+}
+
+.app-main {
+  display: flex;
+  height: calc(98vh - 50px);
+}
+
+.app-header {
+  width: 100%;
+  height: 50px;
+  background-color: $primary-color;
+  color: $secondary-color;
+  border-bottom: 1px solid #403f3f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header-app-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.app-header-sign-out {
+  margin-right: 10px;
+  background-color: $secondary-color;
+  color: $primary-color;
+}
+
+.left-panel {
+  flex: 0 0 15%;
+  background-color: $secondary-color;
+  height: 100%;
+  background: #252525;
+}
+
+.center-panel {
+  flex: 1;
+  overflow-y: scroll;
+  margin:50px !important;
+}
+
+.center-content-app-main {
+  justify-content: center;
+  display: flex;
+  height: calc(98vh - 50px);
+  background: rgb(33, 150, 243);
+  background: linear-gradient(90deg, rgba(0, 201, 255,1) 16%, rgba(147,254,158,1) 100%);
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep {
+  .p-panelmenu-header-link {
+    background-color: $primary-color !important;
+    color: $secondary-color !important;
+    border: 1px solid #403f3f !important;
+  }
+
+  .p-menuitem-link-active {
+    background-color: white !important;
+    color: #403f3f  !important;
+    border: solid 1px #403f3f  !important;
+  }
+
+  .p-panelmenu .p-panelmenu-header > a:focus{
+    box-shadow: 0 0 0 0rem #fff;
+  }
+
+  .p-toolbar, .p-datatable .p-datatable-thead > tr > th{
+  }
+
+  .p-datatable-scrollable-header-box{
+    padding-right: 0px !important;
+  }
+
+  .p-panelmenu-header-link{
+    border-radius: 20px;
+    border-radius: 50px !important;
+    width: 80%;
+    position: relative;
+    margin: 10px auto;
+    text-align: center !important;
+  }
+
+  .p-panelmenu-header-link span{
+    text-align: center;
+    width: 100%;
+  }
+
+  .p-panelmenu .p-panelmenu-header > a .p-panelmenu-icon{
+    width:0% !important;
+  }
+
+  .p-panelmenu-header-link:hover, .p-menuitem-link-active{
+    background: #00c9ff !important;
+    color:#fff !important;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .app-main {
+    flex-direction: column;
+  }
+
+  .center-panel {
+    margin:0px !important;
+  }
+  
+}
+
+

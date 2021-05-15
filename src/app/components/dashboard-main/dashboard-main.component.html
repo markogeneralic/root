@@ -1,0 +1,65 @@
+<p-toolbar>
+  <ng-template pTemplate="right">
+    <p-selectButton [options]="products" [(ngModel)]="selectedProduct" optionLabel="name" (onChange)="refreshTimeline()"></p-selectButton>
+  </ng-template>
+</p-toolbar>
+<p-toolbar>
+  <p-multiSelect [options]="countries" [(ngModel)]="selectedCountries" defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom" (onChange)="refreshTimeline()">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <ng-template let-value pTemplate="selectedItems">
+        <div class="country-item-value" *ngFor="let option of selectedCountries">
+            <!-- <img [src]="'assets/flags/'+option.code+'.png'" [class]="'flag flag-' + option.code.toLowerCase()" /> -->
+            <div>{{option.name}}</div>
+        </div>
+        <div *ngIf="!selectedCountries || selectedCountries.length === 0" class="country-placeholder">
+            Select Countries
+        </div>
+    </ng-template>
+    <ng-template let-country pTemplate="item">
+        <div class="country-item">
+          <!-- <img [src]="'assets/flags/'+country.code+'.png'" [class]="'flag flag-' + country.code.toLowerCase()" /> -->
+            <div>{{country.name}}</div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+    </ng-template>
+  </p-multiSelect>
+</p-toolbar>
+<p-table class="table">
+  <ng-template pTemplate="header">
+    <tr>
+      <th [ngStyle]="{'width': '16%'}"><button pButton label="Export" (click)="export()"[disabled]="this.timelineEvents === undefined || this.timelineEvents.length === 0"></button></th>
+      <th><button pButton type="button" icon="pi pi-caret-left" iconPos="left" (click)="incrementYear(-1)" [disabled]="year === 2021"></button></th>
+      <th colspan="10">{{ year }}</th>
+      <th><button pButton type="button" icon="pi pi-caret-right" iconPos="right" (click)="incrementYear(1)"></button></th>
+    </tr>
+  </ng-template>
+</p-table>
+<div #parentdiv id="parentdiv">
+  <p-table class="table" [columns]="cols" [value]="timelineEvents" [autoLayout]="true" [(contextMenuSelection)]="selectedEvent" [contextMenu]="cm" styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
+          {{ col. header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pContextMenuRow]="rowData">
+        <td *ngFor="let col of columns" [ngClass]="{ event: col.render === 'event' && isEvent(rowData[col.field]), note: col.render === 'event' && isNote(rowData[col.field]) }" (click)="setItems($event, cm, rowData[col.field])" [title]="col.render === 'event' ? getCountries(rowData[col.field]) : ''" (contextmenu)="stopPropagation($event)">
+          <ng-container [ngSwitch]="col.render">
+            <div *ngSwitchCase="'event'" [ngStyle]="{'font-size': getFontSize(rowData[col.field])}">
+              {{ getCountries(rowData[col.field]) }}
+            </div>
+            <div *ngSwitchDefault>
+              {{ rowData[col.field] }}
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-contextMenu #cm [model]="items" (onShow)="onShowNotes(cm)"></p-contextMenu>

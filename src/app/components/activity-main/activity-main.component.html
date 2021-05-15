@@ -1,0 +1,12 @@
+<app-abstract-data-main [cols]="cols" [filters]="filters" globalFilterFields="['name', 'note']" [values]="activities" [(selectedItem)]="selectedActivity" (onSave)="onSave()" (onRemove)="onRemove($event)" (onOpenEdit)="onOpenEdit()">
+  <div dialog>
+    <div class="p-field">
+      <label for="activityNameInput">Name</label>
+      <input type="text" pInputText id="activityNameInput" [(ngModel)]="editActivity.name" required autofocus />
+    </div>
+    <div class="p-field">
+      <label for="activityNoteInput">Note</label>
+      <textarea id="activityNoteInput" pInputTextarea [(ngModel)]="editActivity.note" rows="5" cols="50"></textarea>
+    </div>
+  </div>
+</app-abstract-data-main>

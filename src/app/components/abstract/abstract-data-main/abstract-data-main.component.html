@@ -1,0 +1,65 @@
+<p-toolbar>
+  <ng-template pTemplate="right">
+    <button pButton pRipple label="Add" icon="pi pi-plus" class="p-button-info p-mr-2" (click)="openAdd()"></button>
+  </ng-template>
+
+</p-toolbar>
+<p-table #dt [columns]="cols" [value]="values" selectionMode="single" [(selection)]="selectedItem" [dataKey]="dataKey" (onRowSelect)="onRowSelected()" [scrollable]="true" scrollHeight="80vh" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="globalFilterFields">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col. header }}
+      </th>
+      <th style="width: 8rem"></th>
+    </tr>
+    <tr>
+      <th *ngFor="let fil of filters" [ngSwitch]="fil.type">
+        <div class="p-d-flex p-jc-between p-ai-center">
+          <p-columnFilter *ngSwitchCase="'text'" type="text" [field]="fil.field" matchMode="startsWith" [showMenu]="false"></p-columnFilter>
+          <p-columnFilter *ngSwitchCase="'dateText'" type="text" [field]="fil.field" matchMode="startsWith" [showMenu]="false"></p-columnFilter>
+          <p-columnFilter *ngSwitchCase="'containsText'" type="text" [field]="fil.field" matchMode="contains" [showMenu]="false"></p-columnFilter>
+          <p-columnFilter *ngSwitchCase="'select'" matchMode="equals" [showMenu]="false" [field]="fil.field">
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-dropdown appendTo="body" [ngModel]="value" [options]="fil.options" (onChange)="filter($event.value)" placeholder="Any" [showClear]="true" optionLabel="name" optionValue="name">
+                <ng-template let-option pTemplate="item">
+                  <span>{{ option.name }}</span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+          <p-columnFilter *ngSwitchCase="'multiselect'" matchMode="in" [showMenu]="false" [field]="fil.field">
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-multiSelect appendTo="body" [ngModel]="value" [options]="fil.options" placeholder="Any" (onChange)="filter($event)" optionLabel="name">
+                <ng-template let-option pTemplate="item">
+                  <span>{{ option.name }}</span>
+                </ng-template>
+              </p-multiSelect>
+            </ng-template>
+          </p-columnFilter>
+        </div>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        <span>{{ rowData[col.field] }}</span>
+      </td>
+      <td style="width: 8rem">
+        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-info p-mr-2" (click)="openEdit(rowData)"></button>
+        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="remove(rowData)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="showDialog" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <ng-content select="[dialog]"></ng-content>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
+  </ng-template>
+</p-dialog>

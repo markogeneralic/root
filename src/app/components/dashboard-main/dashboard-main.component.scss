@@ -1,0 +1,82 @@
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+}
+
+.event {
+  background-color: lightgrey;
+  color: red;
+  text-align: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-height: 75px;
+  overflow: hidden;
+}
+
+.note {
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+:host ::ng-deep .p-multiselect {
+  min-width: 15rem;
+}
+
+:host ::ng-deep .multiselect-custom-virtual-scroll .p-multiselect {
+  min-width: 20rem;
+}
+
+:host ::ng-deep .multiselect-custom {
+  .p-multiselect-label {
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+  }
+
+  .country-item {
+    padding: .25rem .5rem;
+    border-radius: 3px;
+    display: inline-flex;
+    margin-right: .5rem;
+
+    img.flag {
+        width: 17px;
+        margin-right: 5px;
+    }
+}
+
+  .country-item-value {
+      padding: .25rem .5rem;
+      border-radius: 3px;
+      display: inline-flex;
+      margin-right: .5rem;
+      background-color: #00c9ff;
+      color: var(--primary-color-text);
+
+      img.flag {
+          width: 17px;
+          margin-right: 5px;
+      }
+  }
+
+  .country-placeholder {
+      padding: 0.25rem;
+  }
+  .p-component{
+    border-radius: 50px !important;
+    padding:5px 0px;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  :host ::ng-deep .p-multiselect, .multiselect-custom {
+    width: 100% !important;
+  }
+}
+
+
+
+
+
+
+

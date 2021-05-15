@@ -1,0 +1,15 @@
+<div class="app">
+  <div class="app-header">
+    <span class="app-header-app-name">PharmaApp</span>
+    <button *ngIf="authentication" pButton pRipple type="button" icon="pi pi-sign-out" class="p-button-rounded app-header-sign-out" (click)="signOut()"></button>
+  </div>
+  <div [ngClass]="{'app-main': authentication, 'center-content-app-main': !authentication}">
+    <div *ngIf="authentication" class="left-panel">
+      <p-panelMenu [model]="menuItems" [multiple]="false"></p-panelMenu>
+    </div>
+    <div [ngClass]="{ 'center-panel': authentication, 'center-content': !authentication }">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<p-toast position="bottom-right" key="br-toast"></p-toast>

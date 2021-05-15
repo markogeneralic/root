@@ -1,0 +1,12 @@
+<app-abstract-data-main [cols]="cols" [filters]="filters" globalFilterFields="['name', 'note']" [values]="products" [(selectedItem)]="selectedProduct" (onSave)="onSave()" (onRemove)="onRemove($event)" (onOpenEdit)="onOpenEdit()">
+  <div dialog>
+    <div class="p-field">
+      <label for="productNameInput">Name</label>
+      <input type="text" pInputText id="productNameInput" [(ngModel)]="editProduct.name" required autofocus />
+    </div>
+    <div class="p-field">
+      <label for="productNoteInput">Note</label>
+      <textarea id="productNoteInput" pInputTextarea [(ngModel)]="editProduct.note" rows="5" cols="50"></textarea>
+    </div>
+  </div>
+</app-abstract-data-main>

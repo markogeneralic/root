@@ -1,0 +1,24 @@
+<app-abstract-data-main [cols]="cols" [filters]="filters" globalFilterFields="['country', 'product', 'activity', 'date', 'note']" [values]="events" [(selectedItem)]="selectedEvent" (onSave)="onSave()" (onRemove)="onRemove($event)" (onOpenEdit)="onOpenEdit()">
+  <div dialog>
+    <div class="p-field">
+      <label for="eventDate">Date</label>
+      <p-calendar [(ngModel)]="editEvent.date" [showIcon]="true" inputId="eventDate" dateFormat="mm-dd-yy" [required]="true"></p-calendar>
+    </div>
+    <div class="p-field">
+      <label for="eventCountryDropdown">Country</label>
+      <p-dropdown id="eventCountryDropdown" [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" placeholder="Select a Country" [required]="true" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="p-field">
+      <label for="eventProductDropdown">Product</label>
+      <p-dropdown id="eventProductDropdown" [options]="products" [(ngModel)]="selectedProduct" optionLabel="name" placeholder="Select a Product" [required]="true" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="p-field">
+      <label for="eventActivityDropdown">Activity</label>
+      <p-dropdown id="eventActivityDropdown" [options]="activities" [(ngModel)]="selectedActivity" optionLabel="name" placeholder="Select an Activity" [required]="true" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="p-field">
+      <label for="eventNoteInput">Note</label>
+      <textarea id="eventNoteInput" pInputTextarea [(ngModel)]="editEvent.note" rows="5" cols="50"></textarea>
+    </div>
+  </div>
+</app-abstract-data-main>
