@@ -1,0 +1,117 @@
+.event {
+  color:black;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-height: 75px;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+}
+
+.note {
+  font-weight: bold;
+}
+
+:host ::ng-deep .p-multiselect {
+  min-width: 15rem;
+}
+
+:host ::ng-deep .multiselect-custom-virtual-scroll .p-multiselect {
+  min-width: 20rem;
+}
+
+:host ::ng-deep .multiselect-custom {
+  .p-multiselect-label {
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+  }
+
+  .country-item {
+    padding: .25rem .5rem;
+    border-radius: 3px;
+    display: inline-flex;
+    margin-right: .5rem;
+
+    img.flag {
+        width: 17px;
+        margin-right: 5px;
+    }
+}
+
+  .country-item-value {
+      padding: .25rem .5rem;
+      border-radius: 3px;
+      display: inline-flex;
+      margin-right: .5rem;
+      background-color: #00c9ff;
+      color: var(--primary-color-text);
+
+      img.flag {
+          width: 17px;
+          margin-right: 5px;
+      }
+  }
+
+  .country-placeholder {
+      padding: 0.25rem;
+  }
+  .p-component{
+    border-radius: 50px !important;
+    padding:5px 0px;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  :host ::ng-deep .p-multiselect, .multiselect-custom {
+    width: 100% !important;
+  }
+}
+
+:host {
+  ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 2.5px;
+  }
+}
+
+.dashboard-td {
+  vertical-align: top;
+}
+
+.dashboard-cell {
+  height: 55px;
+  overflow: hidden;
+}
+
+.dashboard-cell-text {
+  // font-size: .75rem;
+  text-overflow: ellipsis;
+}
+
+.event-country {
+  padding-bottom: 0;
+}
+
+.country-grid {
+  font-size: .75rem;
+  width: 82px;
+  max-height: 60px;
+  overflow-y: hidden;
+  padding: 0.25rem;
+}
+
+.remove-padding {
+  padding: 0 0.5rem;
+}
+
+.remove-left-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.header-year {
+  text-align: center !important;
+}
+
+.button-next {
+  float: right;
+}

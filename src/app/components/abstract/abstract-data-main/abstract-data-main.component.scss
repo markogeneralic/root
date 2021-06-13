@@ -1,0 +1,9 @@
+:host {
+  ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+    text-transform: uppercase;
+  }
+
+  ::ng-deep .p-datatable-scrollable-body {
+    height: 55vh;
+  }
+}

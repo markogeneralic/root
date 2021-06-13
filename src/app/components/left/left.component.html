@@ -1,0 +1,34 @@
+<div class="left-container">
+  <p-panelMenu [model]="menuItems" [multiple]="false"></p-panelMenu>
+  <div *ngIf="activePanel === panel.dashboard" class="dashboard-left">
+    <button pButton label="Export" (click)="export()" class="dashboard-left-export"></button>
+    <div class="dashboard-left-products-panel">
+      <span class="dashboard-left-products-panel-title">Products</span>
+      <div class="p-grid">
+        <div *ngFor="let product of products" class="p-col-6">
+          <button
+            pButton
+            [label]="product.name"
+            [title]="product.name"
+            (click)="onSelectProduct(product)"
+            class="dashboard-left-products-panel-button"
+            [ngClass]="{'dashboard-left-products-panel-button-selected': product === selectedProduct}"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="activePanel !== panel.dashboard" class="filters-left">
+    <button pButton label="More Filters" (click)="onShowFilters()" class="filters-left-more-button" [disabled]="filterOptions.length === 0"></button>
+    <p-dropdown *ngIf="showFilters" [options]="filterOptions" placeholder="Select a Filter" optionLabel="name" (onChange)="addFilter($event)" class="filters-left-more-dropdown"></p-dropdown>
+    <div *ngFor="let filter of filters; let i = index" class="filters-left-filter">
+      <span class="filters-left-filter-name">{{ filter.name }}</span>
+      <span class="p-input-icon-right">
+        <i class="pi pi-times filters-left-filter-remove" (click)="removeFilter(filter)"></i>
+        <input *ngIf="filter.type === 'contains'" type="text" pInputText [(ngModel)]="filters[i].value" (blur)="search(filter.column, filter.value, filter.type)" (keyup.enter)="search(filter.column, filter.value, filter.type)" class="filters-left-filter-input" [autofocus]="true">
+        <input *ngIf="filter.type === 'dateRange'" type="text" pInputText [(ngModel)]="filters[i].value" (blur)="search(filter.column, filter.value, filter.type)" (keyup.enter)="search(filter.column, filter.value, filter.type)" class="filters-left-filter-input" aria-describedby="dateRange-help" [ngClass]="{ 'ng-invalid ng-dirty': invalidDateFormat }" [autofocus]="true">
+      </span>
+      <small *ngIf="filter.type === 'dateRange' && invalidDateFormat" id="dateRange-help" class="p-error">Invalid date range format.</small>
+    </div>
+  </div>
+</div>

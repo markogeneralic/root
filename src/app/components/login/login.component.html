@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="login-panel">
+    <h2>PharmaApp</h2>
+    <label class="login-label">Welcome! <br>Please input your details below to login.</label>
+    <div class="p-field">
+      <input id="username" type="username" placeholder="Username" pInputText [(ngModel)]="username" [ngClass]="{ 'ng-invalid ng-dirty': invalid }" />
+    </div>
+    <div class="p-field">
+      <input id="password" type="password" placeholder ="Password" pInputText [(ngModel)]="password" [ngClass]="{ 'ng-invalid ng-dirty': invalid }"/>
+    </div>
+    <div class="p-field-button">
+      <button pButton type="button" label="Login" (click)="login()"></button>
+    </div>
+    <div>
+      <small *ngIf="invalid" id="login-failed" class="p-error">Login failed.</small>
+    </div>
+  </div>
+</div>

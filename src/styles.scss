@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    margin: 0px auto;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.p-component{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button{
+    background: linear-gradient(90deg, #00c9ff 16%, #93fe9e 100%) !important;
+    border:0px !important;
+    color:#252525 !important;
+}
+
+.p-button.p-button-info:hover, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button:hover{
+    background: linear-gradient(90deg, #93fe9e 16%, #00c9ff 100%) !important;
+    border:0px !important;
+}
+
+.p-button.p-button-info:enabled:focus, .p-buttonset.p-button-info > .p-button:enabled:focus, .p-splitbutton.p-button-info > .p-button:enabled:focus {
+    box-shadow: 0 0 0 0.2rem #e9ecef !important;
+}
+
+.p-button.p-button-info.ng-star-inserted{
+    padding: 0.7rem 2rem !important;
+    border-radius: 20px !important;
+}
+
+.p-selectbutton .p-button{
+    background: #00c9ff !important;
+    color:#fff !important;
+    border-radius: 50px !important;
+    margin: 0px 5px !important;
+}
+
+.p-button:enabled:hover{
+    background: #00c9ff !important;
+}
+
+.p-selectbutton .p-button.p-highlight:hover{
+    background: #00c9ff !important;
+}
+
+.p-ai-center{
+    justify-content: middle !important;
+}
+@media only screen and (max-width: 1025px) {
+    .p-buttonset .p-button{
+        width: 50% !important;
+    } 
+
+    .table table {
+        display: block !important;
+    }
+
+    .p-datatable table{
+        display:block !important;
+    }
+}
+

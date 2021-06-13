@@ -1,0 +1,87 @@
+@import 'src/variables.scss';
+
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:50px;
+  border-radius: 20px;
+  background: $secondary-color;
+}
+
+.login-panel .p-field-button, .login-panel .p-button{
+  width: 100%;
+  border-radius: 20px !important;
+}
+
+.login-panel h2{
+  margin-top: 0px;
+}
+
+.login-panel .p-button{
+  border-radius: 20px;
+}
+
+.p-button{
+  background: #00c9ff  !important;
+}
+
+.p-button:hover{
+  background: $light-gray !important;
+} 
+
+.login-label{
+  text-align: center;
+  padding-bottom:20px;
+}
+
+.p-field, .p-field input{
+  width: 100%;
+  border-radius: 20px;
+}
+
+.p-inputtext:enabled:focus{
+  box-shadow:none;
+}
+
+.p-error{
+  padding: 10px 0px;
+  display: block;
+}
+
+.login-panel-label {
+  padding-right: 10px;
+}
+
+//keyframes
+@keyframes fadeInLeft {
+  0% {
+     opacity: 0;
+     transform: translateX(-100px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+}
+
+.login-panel{
+  animation: fadeInLeft 2s;
+}
+
+//keyframes end
+
+@media only screen and (max-width: 1025px) {
+  .login-panel {
+    width: 90%;
+    position: relative;
+    margin: 0px auto;
+    padding:20px;
+  }
+}
+
+@media only screen and (max-width: 1025px) and (orientation: landscape) {
+  .login-panel {
+     margin-top:100px;
+  }
+}
