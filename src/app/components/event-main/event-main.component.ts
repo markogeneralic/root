@@ -33,7 +33,8 @@ export class EventMainComponent implements OnInit {
     },
     {
       field: 'date',
-      header: 'Date'
+      header: 'Date',
+      type: 'date'
     },
     {
       field: 'note',
@@ -58,31 +59,30 @@ export class EventMainComponent implements OnInit {
 
   showDialog = false;
 
-  filters = [
-    {
-      field: 'country',
-      type: 'select',
-      options: []
-    },
-    {
-      field: 'product',
-      type: 'select',
-      options: []
-    },
-    {
-      field: 'activity',
-      type: 'select',
-      options: []
-    },
-    {
-      field: 'date',
-      type: 'dateText'
-    },
-    {
-      field: 'note',
-      type: 'containsText'
-    }
-  ];
+  // filters = [
+  //   {
+  //     field: 'country',
+  //     type: 'containsText'
+  //     // type: 'select',
+  //     // options: []
+  //   },
+  //   {
+  //     field: 'product',
+  //     type: 'containsText'
+  //   },
+  //   {
+  //     field: 'activity',
+  //     type: 'containsText'
+  //   },
+  //   {
+  //     field: 'date',
+  //     type: 'dateText'
+  //   },
+  //   {
+  //     field: 'note',
+  //     type: 'containsText'
+  //   }
+  // ];
 
   constructor(protected eventService: EventService, protected countryService: CountryService, protected productService: ProductService, protected activityService: ActivityService, protected datePipe: DatePipe, protected globalEventsService: GlobalEventsService) { }
 
@@ -94,15 +94,12 @@ export class EventMainComponent implements OnInit {
     });
     this.countryService.getAll().subscribe(data => {
       this.countries = data;
-      this.filters[0].options = data;
     });
     this.productService.getAll().subscribe(data => {
       this.products = data;
-      this.filters[1].options = data;
     });
     this.activityService.getAll().subscribe(data => {
       this.activities = data;
-      this.filters[2].options = data;
     });
   }
 

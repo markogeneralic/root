@@ -9,42 +9,68 @@
 .app-main {
   display: flex;
   height: calc(98vh - 50px);
+  background: rgb(200,200,200);
+  background: linear-gradient(180deg, rgba(200,200,200,1) 0%, rgba(255,255,255,1) 51%);
 }
 
 .app-header {
   width: 100%;
-  height: 50px;
-  background-color: $primary-color;
+  height: 100px;
+  background-color: #fff;
   color: $secondary-color;
-  border-bottom: 1px solid #403f3f;
+  border-bottom: 2px solid #ebebeb;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
 }
 
 .app-header-app-name {
   font-weight: bold;
   font-size: 20px;
   margin-left: 10px;
+  color:$primary-color;
+}
+
+.title_cont{
+  flex: 0 0 15%;
+  border-right: 2px solid #ebebeb;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_cont span{
+  font-size: 1.2vw;
 }
 
 .app-header-sign-out {
   margin-right: 10px;
   background-color: $secondary-color;
   color: $primary-color;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
 .left-panel {
   flex: 0 0 15%;
   background-color: $secondary-color;
   height: 100%;
-  background: #252525;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(235,235,235,1) 100%);
+}
+
+.p-button:enabled:hover, .p-button:enabled:active{
+  border: none !important;
 }
 
 .center-panel {
   flex: 1;
-  overflow-y: scroll;
   margin:50px !important;
+  border-radius: 20px;
+  box-shadow: 10px 10px 14px -6px #888888;
 }
 
 .center-content-app-main {
@@ -52,7 +78,6 @@
   display: flex;
   height: calc(98vh - 50px);
   background: rgb(33, 150, 243);
-  background: linear-gradient(90deg, rgba(0, 201, 255,1) 16%, rgba(147,254,158,1) 100%);
 }
 
 .center-content {
@@ -60,11 +85,22 @@
   align-items: center;
 }
 
+:host {
+  ::ng-deep .app-header-sign-out .p-button-label {
+    font-size: 0.8vw;
+  }
+}
+
 ::ng-deep {
   .p-panelmenu-header-link {
     background-color: $primary-color !important;
     color: $secondary-color !important;
     border: 1px solid #403f3f !important;
+    display: flex;
+  }
+
+  .pi-chevron-right, .pi-chevron-down{
+    order:3;
   }
 
   .p-menuitem-link-active {
@@ -78,6 +114,7 @@
   }
 
   .p-toolbar, .p-datatable .p-datatable-thead > tr > th{
+    color:rgb(33, 150, 243);
   }
 
   .p-datatable-scrollable-header-box{
@@ -85,12 +122,16 @@
   }
 
   .p-panelmenu-header-link{
-    border-radius: 20px;
-    border-radius: 50px !important;
+    border-radius: 0px !important;
     width: 80%;
     position: relative;
     margin: 10px auto;
     text-align: center !important;
+    background: transparent !important;
+    color:#73d3a3 !important;
+    border:none !important;
+    border-bottom: 2px solid #909090 !important;
+    font-weight: bold;
   }
 
   .p-panelmenu-header-link span{
@@ -103,8 +144,52 @@
   }
 
   .p-panelmenu-header-link:hover, .p-menuitem-link-active{
-    background: #00c9ff !important;
+    background: transparent !important;
+    color:$primary-color !important;
+  }
+
+  .p-toolbar{
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .p-button{
+    background: $primary-color;
+  }
+
+  .ng-star-inserted{
+    font-size: 0.8vw;
+  }
+
+  .p-menuitem-icon{
+    width: 0% !important;
+    font-size: 1vw;
+  }
+
+  app-left .p-toggleable-content{
+    width:80% !important;
+    position: relative !important;
+    margin:0px auto !important;
+  }
+
+  app-left .p-panelmenu-root-submenu .p-menuitem-link:hover{
+    background: $primary-color !important;
+    color:#ffffff !important;
+  }
+
+  app-left .p-panelmenu-root-submenu .p-menuitem-link-active{
+    background: $primary-color !important;
+    color:#ffffff !important;
+  }
+
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover{
     color:#fff !important;
+    background-color: $primary-color !important;
+  }
+
+
+
+  app-left .p-panelmenu-root-submenu .p-menuitem-link:hover span, app-left .p-panelmenu-root-submenu .p-menuitem-link-active span{
+    color:#ffffff !important;
   }
 }
 
@@ -116,7 +201,7 @@
   .center-panel {
     margin:0px !important;
   }
-  
+
 }
 
 

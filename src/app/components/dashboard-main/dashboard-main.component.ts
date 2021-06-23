@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { MenuItem } from 'primeng/api';
 import { ContextMenu } from 'primeng/contextmenu';
+import { Subject, Subscription } from 'rxjs';
+import { GlobalEventsService } from 'src/app/events/global-events.service';
 import { Country } from 'src/app/models/country';
 import { Product } from 'src/app/models/product';
 import { TimelineEvent } from 'src/app/models/timelineEvent';
@@ -15,7 +17,8 @@ import { ProductService } from 'src/app/services/product/product.service';
   templateUrl: './dashboard-main.component.html',
   styleUrls: ['./dashboard-main.component.scss']
 })
-export class DashboardMainComponent implements OnInit {
+export class DashboardMainComponent implements OnInit, OnDestroy {
+  private subscriptions: Subscription[] = [];
 
   cols = [
     {
@@ -101,30 +104,33 @@ export class DashboardMainComponent implements OnInit {
 
   year = 2021;
 
-  products: Product[];
   selectedProduct: Product;
 
   countries: Country[];
   selectedCountries: Country[] = [];
 
 
-  constructor(protected eventService: EventService, protected productService: ProductService, protected countryService: CountryService) { }
+  constructor(protected globalEventsService: GlobalEventsService, protected eventService: EventService, protected productService: ProductService, protected countryService: CountryService) { }
 
   ngOnInit(): void {
-    this.productService.getAll().subscribe(data => {
-      this.products = data;
-      if (this.products !== undefined && this.products !== null && this.products.length > 0) {
-        this.selectedProduct = this.products[0];
-      }
-      this.refreshTimeline();
-    });
-    this.countryService.getAll().subscribe(data => {
+    this.subscriptions.push(this.countryService.getAll().subscribe(data => {
       this.countries = data;
       if (this.countries !== undefined && this.countries !== null) {
         this.countries.forEach(c => this.selectedCountries.push(c));
       }
       this.refreshTimeline();
-    });
+    }));
+
+    this.subscriptions.push(this.globalEventsService.selectProduct.subscribe(data => {
+      this.selectedProduct = data;
+      this.refreshTimeline();
+    }));
+
+    this.globalEventsService.triggerRequestProduct();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   getCountries(events: any[]) {
@@ -212,14 +218,4 @@ export class DashboardMainComponent implements OnInit {
     this.refreshTimeline();
   }
 
-  export() {
-    html2canvas(document.querySelector("#parentdiv")).then(canvas => {
-      var pdf = new jsPDF('l', 'pt', [canvas.width, canvas.height]);
-
-      var imgData  = canvas.toDataURL("image/jpeg", 1.0);
-      pdf.addImage(imgData,0,0,canvas.width, canvas.height);
-      pdf.save(this.selectedProduct.name+' ('+this.year+').pdf');
-
-  });
-  }
 }

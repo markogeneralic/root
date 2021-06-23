@@ -1,4 +1,4 @@
-<app-abstract-data-main [cols]="cols" [filters]="filters" globalFilterFields="['country', 'product', 'activity', 'date', 'note']" [values]="events" [(selectedItem)]="selectedEvent" (onSave)="onSave()" (onRemove)="onRemove($event)" (onOpenEdit)="onOpenEdit()">
+<app-abstract-data-main [cols]="cols" [values]="events" [(selectedItem)]="selectedEvent" (onSave)="onSave()" (onRemove)="onRemove($event)" (onOpenEdit)="onOpenEdit()">
   <div dialog>
     <div class="p-field">
       <label for="eventDate">Date</label>

@@ -12,7 +12,6 @@ import { Helpers } from './helpers/helpers';
 export class AppComponent implements OnInit, AfterViewInit {
   authentication = false;
   display = true;
-  menuItems: MenuItem[];
 
   constructor(private primeConfig: PrimeNGConfig, private helpers: Helpers, private router: Router, private cdr: ChangeDetectorRef) {}
 
@@ -23,45 +22,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.authentication = this.helpers.isAuthenticated();
     this.primeConfig.ripple = true;
-    this.menuItems = [
-      {
-        label: 'Dashboard',
-        routerLink: ['/dashboard'],
-        routerLinkActiveOptions: { exact: true }
-      },
-      {
-        label: 'Data',
-        routerLink: ['/data'],
-        routerLinkActiveOptions: { exact: true }
-      },
-      {
-        label: 'Metadata',
-        items: [
-          {
-            label: 'Country',
-            routerLink: ['/country'],
-            routerLinkActiveOptions: { exact: true }
-          },
-          {
-            label: 'Product',
-            routerLink: ['/product'],
-            routerLinkActiveOptions: { exact: true }
-          },
-          {
-            label: 'Activity',
-            routerLink: ['/activity'],
-            routerLinkActiveOptions: { exact: true }
-          }
-        ]
-      }
-      // {
-      //   label: 'Logout',
-      //   command: (event) => {
-      //     this.helpers.setToken(null);
-      //     this.router.navigate(['/login']);
-      //   }
-      // }
-    ]
   }
 
   signOut() {

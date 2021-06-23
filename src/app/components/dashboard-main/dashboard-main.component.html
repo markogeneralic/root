@@ -1,9 +1,4 @@
 <p-toolbar>
-  <ng-template pTemplate="right">
-    <p-selectButton [options]="products" [(ngModel)]="selectedProduct" optionLabel="name" (onChange)="refreshTimeline()"></p-selectButton>
-  </ng-template>
-</p-toolbar>
-<p-toolbar>
   <p-multiSelect [options]="countries" [(ngModel)]="selectedCountries" defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom" (onChange)="refreshTimeline()">
     <ng-template pTemplate="header">
     </ng-template>
@@ -29,15 +24,15 @@
 <p-table class="table">
   <ng-template pTemplate="header">
     <tr>
-      <th [ngStyle]="{'width': '16%'}"><button pButton label="Export" (click)="export()"[disabled]="this.timelineEvents === undefined || this.timelineEvents.length === 0"></button></th>
-      <th><button pButton type="button" icon="pi pi-caret-left" iconPos="left" (click)="incrementYear(-1)" [disabled]="year === 2021"></button></th>
-      <th colspan="10">{{ year }}</th>
-      <th><button pButton type="button" icon="pi pi-caret-right" iconPos="right" (click)="incrementYear(1)"></button></th>
+      <!-- <th [ngStyle]="{'width': '16%'}"></th> -->
+      <th><button pButton type="button" icon="pi pi-caret-left" iconPos="left" (click)="incrementYear(-1)" [disabled]="year === 2021" pTooltip="Previous Year"></button></th>
+      <th colspan="10" class="header-year">{{ year }}</th>
+      <th><button pButton type="button" icon="pi pi-caret-right" iconPos="right" (click)="incrementYear(1)" pTooltip="Next year" class="button-next"></button></th>
     </tr>
   </ng-template>
 </p-table>
 <div #parentdiv id="parentdiv">
-  <p-table class="table" [columns]="cols" [value]="timelineEvents" [autoLayout]="true" [(contextMenuSelection)]="selectedEvent" [contextMenu]="cm" styleClass="p-datatable-gridlines">
+  <p-table class="table" [columns]="cols" [value]="timelineEvents" [autoLayout]="true" [(contextMenuSelection)]="selectedEvent" [contextMenu]="cm">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
@@ -46,14 +41,20 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr [pContextMenuRow]="rowData">
-        <td *ngFor="let col of columns" [ngClass]="{ event: col.render === 'event' && isEvent(rowData[col.field]), note: col.render === 'event' && isNote(rowData[col.field]) }" (click)="setItems($event, cm, rowData[col.field])" [title]="col.render === 'event' ? getCountries(rowData[col.field]) : ''" (contextmenu)="stopPropagation($event)">
+      <tr class="dashboard-tr" [pContextMenuRow]="rowData">
+        <!-- <td *ngFor="let col of columns" class="dashboard-td" [ngClass]="{ event: col.render === 'event' && isEvent(rowData[col.field]), note: col.render === 'event' && isNote(rowData[col.field]) }" (click)="setItems($event, cm, rowData[col.field])" [title]="col.render === 'event' ? getCountries(rowData[col.field]) : ''" (contextmenu)="stopPropagation($event)"> -->
+        <td *ngFor="let col of columns" class="dashboard-td" [ngClass]="{ event: col.render === 'event' && isEvent(rowData[col.field]) }" (click)="setItems($event, cm, rowData[col.field])" [title]="col.render === 'event' ? getCountries(rowData[col.field]) : ''" (contextmenu)="stopPropagation($event)">
           <ng-container [ngSwitch]="col.render">
-            <div *ngSwitchCase="'event'" [ngStyle]="{'font-size': getFontSize(rowData[col.field])}">
+            <!-- <div *ngSwitchCase="'event'" [ngStyle]="{'font-size': getFontSize(rowData[col.field])}">
               {{ getCountries(rowData[col.field]) }}
+            </div> -->
+            <div *ngSwitchCase="'event'" class="p-grid country-grid">
+              <div *ngFor="let event of rowData[col.field]; let i = index" class="p-col-4 event-country" [ngClass]="{'remove-padding': i > 2, 'remove-left-padding': i % 3 === 2, 'note': event.note != null }">
+                {{ event.country}}{{i !== rowData[col.field].length - 1 ? ',' : ''}}
+              </div>
             </div>
-            <div *ngSwitchDefault>
-              {{ rowData[col.field] }}
+            <div *ngSwitchDefault class="dashboard-cell">
+              <span [pTooltip]="rowData[col.field]" class="dashboard-cell-text">{{ rowData[col.field] }}</span>
             </div>
           </ng-container>
         </td>

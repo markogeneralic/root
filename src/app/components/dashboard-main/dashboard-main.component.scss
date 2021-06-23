@@ -1,21 +1,14 @@
-::ng-deep .p-datatable .p-datatable-thead > tr > th {
-  text-align: center;
-}
-
 .event {
-  background-color: lightgrey;
-  color: red;
-  text-align: center !important;
+  color:black;
   padding: 0 !important;
   margin: 0 !important;
   max-height: 75px;
+  height: 50px;
+  width: 50px;
   overflow: hidden;
 }
 
 .note {
-  background-color: yellow;
-  color: black;
-  text-align: center;
   font-weight: bold;
 }
 
@@ -50,7 +43,7 @@
       border-radius: 3px;
       display: inline-flex;
       margin-right: .5rem;
-      background-color: #00c9ff;
+      background-color: #5483ed;
       color: var(--primary-color-text);
 
       img.flag {
@@ -63,8 +56,11 @@
       padding: 0.25rem;
   }
   .p-component{
-    border-radius: 50px !important;
-    padding:5px 0px;
+    padding:10px 0px;
+  }
+
+  .p-multiselect-filter.p-component{
+    padding: 10px 10px;
   }
 }
 
@@ -74,9 +70,52 @@
   }
 }
 
+:host {
+  ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 2.5px;
+  }
+}
 
+.dashboard-td {
+  vertical-align: top;
+}
 
+.dashboard-cell {
+  height: 55px;
+  overflow: hidden;
+}
 
+.dashboard-cell-text {
+  // font-size: .75rem;
+  text-overflow: ellipsis;
+}
 
+.event-country {
+  padding-bottom: 0;
+}
 
+.country-grid {
+  font-size: .75rem;
+  width: 82px;
+  max-height: 60px;
+  overflow-y: hidden;
+  padding: 0.25rem;
+}
+
+.remove-padding {
+  padding: 0 0.5rem;
+}
+
+.remove-left-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.header-year {
+  text-align: center !important;
+}
+
+.button-next {
+  float: right;
+}
 

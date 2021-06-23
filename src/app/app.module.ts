@@ -36,7 +36,9 @@ import { LoginComponent } from './components/login/login.component';
 import { Helpers } from './helpers/helpers';
 import { AuthGuard } from './helpers/canActivateAuthGuard';
 import { MessageService } from 'primeng/api';
-import { RouterModule } from '@angular/router';
+import { LeftComponent } from './components/left/left.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { RouterModule } from '@angular/router';
     DashboardMainComponent,
     AbstractDataMainComponent,
     EventMainComponent,
-    LoginComponent
+    LoginComponent,
+    LeftComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,9 @@ import { RouterModule } from '@angular/router';
     MultiSelectModule,
     ContextMenuModule,
     SelectButtonModule,
-    ToastModule
+    ToastModule,
+    TooltipModule,
+    InputMaskModule
   ],
   providers: [HttpClient, AppConfig, DatePipe, Helpers, AuthGuard, MessageService],
   bootstrap: [AppComponent]

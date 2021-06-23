@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { FilterService } from 'primeng/api';
+import { Table } from 'primeng/table';
 import { GlobalEventsService } from 'src/app/events/global-events.service';
 
 @Component({
@@ -29,12 +31,55 @@ export class AbstractDataMainComponent implements OnInit {
   @Output()
   onRemove = new EventEmitter<any>();
 
+  @ViewChild("dt") dt: Table;
+
   showDialog = false;
 
-  constructor(protected globalEventsService: GlobalEventsService) { }
+  constructor(protected globalEventsService: GlobalEventsService, protected filterService: FilterService) { }
 
   ngOnInit(): void {
     this.globalEventsService.showDialog.subscribe((show: boolean) => this.showDialog = show);
+
+    this.globalEventsService.filterTable.subscribe(data => {
+      this.dt.filter(data.value, data.column, data.type);
+    });
+
+    this.filterService.register('dateRange', (value, filter): boolean => {
+      if (filter === undefined || filter === null || filter.trim() === '') {
+        return true;
+      }
+
+      if (value === undefined || value === null) {
+          return false;
+      }
+
+      const d = new Date(value);
+      const dates = filter.split('..');
+
+      let reDay = new RegExp('[0-3][0-9]');
+      let reMonth = new RegExp('[0-1][0-9]');
+      let reYear = new RegExp('[0-9]{4}');
+
+      const dStart = dates[0].split('.');
+      const startValid = dStart.length === 3 && reDay.test(dStart[0]) && reMonth.test(dStart[1]) && reYear.test(dStart[2]);
+
+      if (dates.length === 1) {
+        return this.sameDay(d, new Date(dStart[1]+'/'+dStart[0]+'/'+dStart[2]))
+      }
+
+      const dEnd = dates[1].split('.');
+      const endValid = dEnd.length === 3 && reDay.test(dEnd[0]) && reMonth.test(dEnd[1]) && reYear.test(dEnd[2]);
+
+      if (startValid && endValid) {
+        return d >= new Date(dStart[1]+'/'+dStart[0]+'/'+dStart[2]) && d <= new Date(dEnd[1]+'/'+dEnd[0]+'/'+dEnd[2]);
+      } else if (startValid && !endValid) {
+        return d >= new Date(dStart[1]+'/'+dStart[0]+'/'+dStart[2]);
+      } else if (!startValid && endValid) {
+        return d <= new Date(dEnd[1]+'/'+dEnd[0]+'/'+dEnd[2]);
+      } else {
+        return true;
+      }
+    });
   }
 
   onRowSelected() {
@@ -72,5 +117,11 @@ export class AbstractDataMainComponent implements OnInit {
 
   static numberIsFilled(value: number): boolean {
     return value !== undefined && value !== null;
+  }
+
+  sameDay(d1, d2) {
+    return d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
   }
 }
