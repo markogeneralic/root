@@ -1,6 +1,8 @@
 <div class="app">
   <div class="app-header">
-    <span class="app-header-app-name">PharmaApp</span>
+    <div class="title_cont">
+      <span class="app-header-app-name">PharmaApp</span>
+    </div>
     <button *ngIf="authentication" pButton pRipple type="button" label="LOGOUT" icon="pi pi-user" iconPos="right" class="app-header-sign-out" (click)="signOut()"></button>
   </div>
   <div [ngClass]="{'app-main': authentication, 'center-content-app-main': !authentication}">

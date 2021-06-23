@@ -13,28 +13,46 @@
 
 .dashboard-left-export {
   margin-bottom: 20px;
+  border-radius: 50px;
 }
 
 .dashboard-left-products-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: grey;
-  padding: 10px;
-  margin: 10px;
+  background: #dddddd;
+  padding: 40px 10px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  width: 90%;
+  box-shadow: 10px 10px 14px -6px #888888;
 }
 
 .dashboard-left-products-panel-title {
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color:#909090;
 }
 
 .dashboard-left-products-panel-button {
   font-size: .75rem;
+  width:100%;
+  border-radius: 50px;
+  color:#888888;
+  border: 1px solid #909090;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.dashboard-left-products-panel-button:hover {
+  border: 1px solid #888888;
 }
 
 .dashboard-left-products-panel-button-selected {
-  background-color: blue;
+  background-color: #5483ed;
+  color:#fff;
+  border: 1px solid #888888;
 }
 
 .filters-left {
@@ -45,6 +63,7 @@
 
 .filters-left-more-button {
   margin-bottom: 20px;
+  border-radius: 50px;
 }
 
 .filters-left-more-dropdown {
@@ -59,8 +78,10 @@
 }
 
 .filters-left-filter-name {
-  color: white;
+  color: #909090;
+  margin-bottom:15px;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .filters-left-filter-remove {

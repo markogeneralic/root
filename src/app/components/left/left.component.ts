@@ -38,18 +38,21 @@ export class LeftComponent implements OnInit {
     this.menuItems = [
       {
         label: 'DASHBOARD',
+        icon: 'pi pi-home',
         routerLink: ['/dashboard'],
         routerLinkActiveOptions: { exact: true },
         command: () => this.openDashboard()
       },
       {
         label: 'DATA INPUT',
+        icon: 'pi pi-folder',
         routerLink: ['/data'],
         routerLinkActiveOptions: { exact: true },
         command: () => this.openEventsPanel()
       },
       {
         label: 'MASTER DATA',
+        icon: 'pi pi-chart-bar',
         items: [
           {
             label: 'Country',

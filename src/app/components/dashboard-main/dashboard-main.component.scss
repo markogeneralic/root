@@ -43,7 +43,7 @@
       border-radius: 3px;
       display: inline-flex;
       margin-right: .5rem;
-      background-color: #00c9ff;
+      background-color: #5483ed;
       color: var(--primary-color-text);
 
       img.flag {
@@ -56,8 +56,11 @@
       padding: 0.25rem;
   }
   .p-component{
-    border-radius: 50px !important;
-    padding:5px 0px;
+    padding:10px 0px;
+  }
+
+  .p-multiselect-filter.p-component{
+    padding: 10px 10px;
   }
 }
 
@@ -115,3 +118,4 @@
 .button-next {
   float: right;
 }
+

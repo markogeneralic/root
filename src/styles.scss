@@ -10,13 +10,12 @@ body{
 }
 
 .p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button{
-    background: linear-gradient(90deg, #00c9ff 16%, #93fe9e 100%) !important;
     border:0px !important;
-    color:#252525 !important;
+    color:#fff !important;
 }
 
 .p-button.p-button-info:hover, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button:hover{
-    background: linear-gradient(90deg, #93fe9e 16%, #00c9ff 100%) !important;
+    background: linear-gradient(90deg, #93fe9e 16%, #73d3a3 100%) !important;
     border:0px !important;
 }
 
@@ -30,18 +29,18 @@ body{
 }
 
 .p-selectbutton .p-button{
-    background: #00c9ff !important;
+    background: #73d3a3 !important;
     color:#fff !important;
     border-radius: 50px !important;
     margin: 0px 5px !important;
 }
 
 .p-button:enabled:hover{
-    background: #00c9ff !important;
+    background: #73d3a3 !important;
 }
 
 .p-selectbutton .p-button.p-highlight:hover{
-    background: #00c9ff !important;
+    background: #73d3a3 !important;
 }
 
 .p-ai-center{
