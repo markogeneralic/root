@@ -12,7 +12,7 @@
 }
 
 .dashboard-left-export {
-  margin-bottom: 20px;
+  margin: 20px 0px;
   border-radius: 50px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .dashboard-left-products-panel-button {
-  font-size: .75rem;
+  font-size: 0.6vw;
   width:100%;
   border-radius: 50px;
   color:#888888;
@@ -91,3 +91,15 @@
 .filters-left-filter-input {
   border-radius: 25px;
 }
+
+.dashboard-left-products-panel .p-col-6{
+  padding: 0.4rem !important;
+}
+
+
+@media only screen and (max-width: 1400px) {
+ .dashboard-left-products-panel .p-col-6{
+   width:100% !important;
+ }
+}
+
