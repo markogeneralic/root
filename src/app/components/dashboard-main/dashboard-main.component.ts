@@ -188,7 +188,7 @@ export class DashboardMainComponent implements OnInit, OnDestroy {
             });
           }
         });
-      } else {
+      } else if (events.length === 1) {
         if (events[0].note !== undefined && events[0].note !== null) {
           this.showNotes = true;
           this.items.push({
