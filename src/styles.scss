@@ -5,6 +5,13 @@ body{
     font-family: 'Montserrat', sans-serif !important;
 }
 
+body{
+    zoom: 85% !important
+}
+
+.p-datatable-scrollable-body{
+    overflow-y: overlay !important;
+}
 .p-component{
     font-family: 'Montserrat', sans-serif !important;
 }
