@@ -3,19 +3,17 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  height: 100vh;
 }
 
 .app-main {
   display: flex;
-  height: calc(98vh - 50px);
   background: rgb(200,200,200);
   background: linear-gradient(180deg, rgba(200,200,200,1) 0%, rgba(255,255,255,1) 51%);
 }
 
 .app-header {
   width: 100%;
-  height: 100px;
   background-color: #fff;
   color: $secondary-color;
   border-bottom: 2px solid #ebebeb;
@@ -40,6 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height:80px !important;
 }
 
 .title_cont span{
@@ -161,7 +160,6 @@
 
   .p-menuitem-icon{
     width: 0% !important;
-    font-size: 1vw;
   }
 
   app-left .p-toggleable-content{
@@ -190,7 +188,7 @@
   }
 
   app-dashboard-main .p-toolbar{
-    justify-content: center  !important;
+    justify-content: start !important;
   }
 
   app-dashboard-main .p-datatable .p-datatable-thead > tr > th:first-child {
@@ -206,6 +204,34 @@
   border-radius: 0px 0px 20px 20px !important;
   box-shadow: 10px 10px 14px -6px #888888;
 }
+
+app-dashboard-main  .dashboard-td .p-col-4{
+  width: 50% !important;
+  padding: 2px !important;
+}
+
+app-dashboard-main .p-grid{
+  margin: 0px !important;
+}
+
+app-dashboard-main .remove-left-padding{
+  padding: 0.5rem 0.5rem 0rem 0.5rem !important;
+}
+
+app-dashboard-main .country-grid{
+  max-height: 100% !important;
+}
+
+app-dashboard-main .p-button, app-abstract-data-main .p-button{
+  font-size:0.8vw !important;
+}
+
+app-dashboard-main .dashboard-tr .dashboard-td:first-child{
+  font-weight: bold;
+  background: #f8f9fa !important;
+  border-right: 1px solid #e9ecef; 
+}
+
 }
 
 

@@ -5,6 +5,9 @@ body{
     font-family: 'Montserrat', sans-serif !important;
 }
 
+.p-datatable-scrollable-body{
+    overflow-y: overlay !important;
+}
 .p-component{
     font-family: 'Montserrat', sans-serif !important;
 }
@@ -24,7 +27,6 @@ body{
 }
 
 .p-button.p-button-info.ng-star-inserted{
-    padding: 0.7rem 2rem !important;
     border-radius: 20px !important;
 }
 

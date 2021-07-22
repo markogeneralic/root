@@ -8,6 +8,11 @@
   overflow: hidden;
 }
 
+app-dashboard-main .p-button, app-abstract-data-main .p-button{
+  font-size:0.8vw !important;
+}
+
+
 .note {
   font-weight: bold;
 }
@@ -56,7 +61,6 @@
       padding: 0.25rem;
   }
   .p-component{
-    padding:10px 0px;
   }
 
   .p-multiselect-filter.p-component{
@@ -75,9 +79,6 @@
     white-space: normal !important;
    }
 
-   .p-toolbar, .p-datatable .p-datatable-thead > tr > th:first-child {
-     width: 11% !important;  
-   }
 }
 
 @media only screen and (max-width: 1025px) {
@@ -113,7 +114,7 @@
   font-size: .75rem;
   max-height: 60px;
   overflow-y: hidden;
-  padding: 0.25rem;
+  padding: 0.25rem 0.7rem;
 }
 
 .remove-padding {
@@ -132,6 +133,7 @@
 .button-next {
   float: right;
 }
+
 
 
 

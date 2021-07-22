@@ -1,7 +1,7 @@
 .left-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
 }
 
@@ -14,6 +14,7 @@
 .dashboard-left-export {
   margin: 20px 0px;
   border-radius: 50px;
+  font-size: 0.8vw !important;
 }
 
 .dashboard-left-products-panel {
@@ -41,7 +42,6 @@
   border-radius: 50px;
   color:#888888;
   border: 1px solid #909090;
-  font-weight: bold;
   background-color: transparent;
 }
 
@@ -62,8 +62,9 @@
 }
 
 .filters-left-more-button {
-  margin-bottom: 20px;
+  margin: 20px 0px;
   border-radius: 50px;
+  font-size:0.8vw;
 }
 
 .filters-left-more-dropdown {
