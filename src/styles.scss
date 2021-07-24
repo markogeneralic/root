@@ -1,73 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
 
-body{
+body {
   margin: 0px auto;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
-body{
-  zoom: 85% !important
+body {
+  zoom: 85% !important;
 }
 
-.p-datatable-scrollable-body{
+.p-datatable-scrollable-body {
   overflow-y: overlay !important;
 }
-.p-component{
-  font-family: 'Montserrat', sans-serif !important;
+
+.p-component {
+  font-family: "Montserrat", sans-serif !important;
 }
 
-.p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button{
-  border:0px !important;
-  color:#fff !important;
+.p-button.p-button-info,
+.p-buttonset.p-button-info > .p-button,
+.p-splitbutton.p-button-info > .p-button {
+  border: 0px !important;
+  color: #fff !important;
 }
 
-.p-button.p-button-info:hover, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button:hover{
+.p-button.p-button-info:hover,
+.p-buttonset.p-button-info > .p-button,
+.p-splitbutton.p-button-info > .p-button:hover {
   background: linear-gradient(90deg, #93fe9e 16%, #73d3a3 100%) !important;
-  border:0px !important;
+  border: 0px !important;
 }
 
-.p-button.p-button-info:enabled:focus, .p-buttonset.p-button-info > .p-button:enabled:focus, .p-splitbutton.p-button-info > .p-button:enabled:focus {
+.p-button.p-button-info:enabled:focus,
+.p-buttonset.p-button-info > .p-button:enabled:focus,
+.p-splitbutton.p-button-info > .p-button:enabled:focus {
   box-shadow: 0 0 0 0.2rem #e9ecef !important;
 }
 
-.p-button.p-button-info.ng-star-inserted{
+.p-button.p-button-info.ng-star-inserted {
   padding: 0.7rem 2rem !important;
   border-radius: 20px !important;
 }
 
-.p-selectbutton .p-button{
+.p-selectbutton .p-button {
   background: #73d3a3 !important;
-  color:#fff !important;
+  color: #fff !important;
   border-radius: 50px !important;
   margin: 0px 5px !important;
 }
 
-.p-button:enabled:hover{
+.p-button:enabled:hover {
   background: #73d3a3 !important;
 }
 
-.p-button-danger.p-ripple:hover{
+.p-button-danger.p-ripple:hover {
   background: #fc6272 !important;
 }
 
-.p-selectbutton .p-button.p-highlight:hover{
+.p-selectbutton .p-button.p-highlight:hover {
   background: #73d3a3 !important;
 }
 
-.p-ai-center{
+.p-ai-center {
   justify-content: middle !important;
 }
 @media only screen and (max-width: 1025px) {
-  .p-buttonset .p-button{
-      width: 50% !important;
+  .p-buttonset .p-button {
+    width: 50% !important;
   }
 
   .table table {
-      display: block !important;
+    display: block !important;
   }
 
-  .p-datatable table{
-      display:block !important;
+  .p-datatable table {
+    display: block !important;
   }
 }
-

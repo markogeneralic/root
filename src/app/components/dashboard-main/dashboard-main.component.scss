@@ -1,11 +1,16 @@
 .event {
-  color:black;
+  color: black;
   padding: 0 !important;
   margin: 0 !important;
   max-height: 75px;
   height: 50px;
   width: 50px;
   overflow: hidden;
+}
+
+app-dashboard-main .p-button,
+app-abstract-data-main .p-button {
+  font-size: 0.8vw !important;
 }
 
 .note {
@@ -22,69 +27,68 @@
 
 :host ::ng-deep .multiselect-custom {
   .p-multiselect-label {
-      padding-top: .25rem;
-      padding-bottom: .25rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 
   .country-item {
-    padding: .25rem .5rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 3px;
     display: inline-flex;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 
     img.flag {
-        width: 17px;
-        margin-right: 5px;
+      width: 17px;
+      margin-right: 5px;
     }
-}
+  }
 
   .country-item-value {
-      padding: .25rem .5rem;
-      border-radius: 3px;
-      display: inline-flex;
-      margin: 0.2rem;
-      background-color: #5483ed;
-      color: var(--primary-color-text);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    display: inline-flex;
+    margin: 0.2rem;
+    background-color: #5483ed;
+    color: var(--primary-color-text);
 
-      img.flag {
-          width: 17px;
-          margin-right: 5px;
-      }
+    img.flag {
+      width: 17px;
+      margin-right: 5px;
+    }
   }
 
   .country-placeholder {
-      padding: 0.25rem;
+    padding: 0.25rem;
   }
-  .p-component{
+  .p-component {
   }
 
-  .p-multiselect-filter.p-component{
+  .p-multiselect-filter.p-component {
     padding: 10px 10px;
   }
 
-  app-dashboard-main td{
+  app-dashboard-main td {
     vertical-align: middle;
   }
 
-  app-dashboard-main th:first-child{
+  app-dashboard-main th:first-child {
     text-align: center;
   }
 
-  .p-multiselect-label{
+  .p-multiselect-label {
     white-space: normal !important;
-   }
-
+  }
 }
 
 @media only screen and (max-width: 1025px) {
-  :host ::ng-deep .p-multiselect, .multiselect-custom {
+  :host ::ng-deep .p-multiselect,
+  .multiselect-custom {
     width: 100% !important;
   }
 }
 
 :host {
   ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
-
   }
 }
 
@@ -106,7 +110,7 @@
 }
 
 .country-grid {
-  font-size: .75rem;
+  font-size: 0.75rem;
   max-height: 60px;
   overflow-y: hidden;
   padding: 0.25rem 0.7rem;
